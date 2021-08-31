@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hierarchical", "Hierarchical\Hierarchical.csproj", "{487F25D4-09BF-4FE4-9B0F-3B35EB98CB7F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{487F25D4-09BF-4FE4-9B0F-3B35EB98CB7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{487F25D4-09BF-4FE4-9B0F-3B35EB98CB7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{487F25D4-09BF-4FE4-9B0F-3B35EB98CB7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{487F25D4-09BF-4FE4-9B0F-3B35EB98CB7F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6EFFDA8F-D374-489F-9359-59453E71DC52}
+	EndGlobalSection
+EndGlobal
