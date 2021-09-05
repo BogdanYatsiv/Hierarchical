@@ -35,42 +35,41 @@ namespace Hierarchical
                           where parent.BaseType.BaseType.Name == "Object"
                           select parent;
 
-            foreach(var item in parents)
+            foreach(Type item in parents)
             {
                 HierarchicalItem<Type> subTree = new(item);
 
                 //find all childrens from this parent
                 var childrens = from child in typeClasses
-                                where child.BaseType == item
+                                where child.IsSubclassOf(item) == true
                                 select child;
 
-                foreach(var child in childrens)
-                {
-                    var harited = from temp in childrens
-                                  where temp.IsSubclassOf(child) == true
-                                  select temp;
-
-                    //if child has own childrens
-                    if(harited.Count() > 0)
-                    {
-                        HierarchicalItem<Type> treeChild = new(child);
-
-                        foreach(var i in harited)
-                        {
-                            treeChild.Add(i);
-                        }
-
-                        subTree.Add(treeChild);
-
-                    }
-                    else subTree.Add(child);
-                }
+                findChildrens(childrens, subTree);
 
                 result.Add(subTree);
             }
-
             return result;
         }
+
+        static void findChildrens(IEnumerable<Type> childrens, HierarchicalItem<Type> parent)
+        {
+            foreach (Type childClass in childrens)
+            {
+                var harited = from temp in childrens
+                              where temp.IsSubclassOf(childClass) == true
+                              select temp;
+
+                if (harited.Count() > 0)
+                {
+                    HierarchicalItem<Type> treeChild = new(childClass);
+                    parent.Add(treeChild);
+
+                    findChildrens(harited, treeChild);
+                }
+                else parent.Add(childClass);
+            }
+        }
+
     }
 
     public class HierarchicalItem<T>
